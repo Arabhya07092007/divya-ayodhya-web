@@ -18,8 +18,9 @@ const Routes = [
     "AE-1 Katra to Sahadatgunj (Rampath)",
     "AE-2 Salarpur to Ayodhya Dham Bus Station ",
     "AE-3 BaratKund to Ayodhya Dham Bus Station",
-    "AE-4  Ayodhya Dham Bus Station to Barun Bazar",
-    "AE-5  Ayodhya Dham Bus Station to Pura Bazar",
+    "AE-4 Ayodhya Dham Bus Station to Barun Bazar",
+    "AE-5 Ayodhya Dham Bus Station to Pura Bazar",
+    "AE-6 Ayodhya Dham Bus Station to Airport",
 ];
 
 

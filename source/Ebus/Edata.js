@@ -122,6 +122,10 @@ const data = [
         "Ayodhya bus Station",
         "Cant Railway Station",
     ],
+    [
+        "Airport",
+        "Ram Mandir",
+    ]
 ];
 
 export default data;

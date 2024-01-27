@@ -23,6 +23,7 @@ const Routes = [
     "AE-3 BaratKund to Ayodhya Dham Bus Station",
     "AE-4  Ayodhya Dham Bus Station to Barun Bazar",
     "AE-5  Ayodhya Dham Bus Station to Pura Bazar",
+    "AE-6 Ayodhya Dham Bus Station to Airport",
 ];
 
 const image = [
@@ -31,11 +32,13 @@ const image = [
     "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/r3.jpg",
     "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/r4.png",
     "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/r5.png",
+    "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/r6.jpg",
 ]
 
 export default function EBusScreen({ navigation, route }) {
     const { index } = route.params;
     console.log(index);
+    const mainindex = index;
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#FDFAE7', }}>
             <StatusBar barStyle={'dark-content'} backgroundColor={'#FDFAE7'} />
@@ -62,7 +65,7 @@ export default function EBusScreen({ navigation, route }) {
                                 data={data[index]}
                                 keyExtractor={(item, index) => index.toString()}
                                 renderItem={({ item, index }) => (
-                                    <Card item={item} index={index} navigation={navigation} />
+                                    <Card item={item} index={index} mindex={mainindex} navigation={navigation} />
                                 )}
                                 style={{ backgroundColor: '#FDFAE7', }}
                             />
@@ -74,7 +77,9 @@ export default function EBusScreen({ navigation, route }) {
     );
 }
 
-function Card({ navigation, item, index }) {
+function Card({ navigation, item, index, mindex }) {
+    console.log(item, index, mindex)
+    // console.log("this is index", index)
     return (
         <View
             style={{
@@ -86,7 +91,7 @@ function Card({ navigation, item, index }) {
                 <View style={{ backgroundColor: "#B01432", width: 32, height: 32, borderRadius: 50, justifyContent: "center", alignItems: "center" }} >
                     <Image source={{ uri: "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/location.png" }} style={{ width: 20, height: 20 }} />
                 </View>
-                <View style={{ backgroundColor: "#B01432", width: 3, height: 35, }} />
+                <View style={[{ width: 3, height: 35, }, (data[mindex].length - 1) !== (index) ? { backgroundColor: "#B01432" } : null]} />
             </View>
             <View style={{ flex: 1, flexDirection: "row", }}>
                 <Text style={{ fontSize: 18, fontWeight: "500", marginLeft: 10, color: "black", marginTop: 2 }}>{item}</Text>
