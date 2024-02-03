@@ -1,19 +1,14 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+const hts = StyleSheet.create({
   cont: {
     flex: 1,
+    // backgroundColor: "pink",
+    marginHorizontal: 30,
   },
-  SvCont: {
+  left: {
     flex: 1,
-    // backgroundColor: "red",
-    // paddingHorizontal: 50,
-  },
-  heading: {
-    fontSize: 26,
-    fontWeight: "bold",
-    // textAlign: "center",
-    marginTop: 20,
+    // backgroundColor: "lightblue",
   },
   ratingImg: {
     width: 18,
@@ -21,31 +16,66 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginTop: 5,
   },
-  desc: {
-    fontSize: 20,
-    fontWeight: "600",
-  },
   locationIcon: {
     width: 20,
     height: 20,
-    marginTop: 5,
-    marginRight: 5,
   },
-  price: {
-    fontSize: 30,
-    fontWeight: "bold",
-    marginTop: 20,
-    color: "#B01432",
-  },
-  icontCont: {
-    borderWidth: 2,
-    borderRadius: 5,
-    borderColor: "#B01432",
-    justifyContent: "center",
+  locationCont: {
+    flexDirection: "row",
     alignItems: "center",
-    width: 40,
-    height: 40,
+  },
+  heading: {
+    fontSize: 25,
+    fontWeight: "bold",
+    // color: "red",
+  },
+  h1: {
+    fontSize: 22,
+    fontWeight: "bold",
+  },
+  h2: {
+    fontSize: 18,
+    fontWeight: "500",
+  },
+  h3: {
+    fontSize: 16,
+    fontWeight: "400",
+  },
+  icnCont: {
+    borderWidth: 2,
+    borderColor: "black",
+    borderRadius: 5,
+    width: 37,
+    height: 37,
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "#B01432",
+  },
+  right: {
+    justifyContent: "center",
+  },
+  addrCont: {
+    marginTop: 20,
+  },
+  choseUs: {
+    marginTop: 20,
+  },
+  amen: {
+    marginTop: 20,
   },
 });
 
-export default styles;
+const styles = StyleSheet.create({
+  cont: {
+    flex: 1,
+    margin: 0,
+    padding: 0,
+    backgroundColor: "#fdfae7",
+  },
+  flexCont: {
+    flex: 1,
+    flexDirection: "row",
+  },
+});
+
+export { hts, styles };

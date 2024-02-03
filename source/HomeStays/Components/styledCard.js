@@ -99,7 +99,7 @@ export default function Card({ item, navigation }) {
             >
               4.3
             </Text>
-            <Image
+            {/* <Image
               source={require("../Assests/stars.png")}
               style={{ width: 15, height: 15, marginLeft: 10 }}
             />
@@ -118,7 +118,7 @@ export default function Card({ item, navigation }) {
             <Image
               source={require("../Assests/stars.png")}
               style={{ width: 15, height: 15, marginLeft: 5 }}
-            />
+            /> */}
             <Text
               style={{
                 color: "#6B7280",

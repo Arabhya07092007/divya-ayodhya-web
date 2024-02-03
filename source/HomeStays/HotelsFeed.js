@@ -85,10 +85,10 @@ export default function HotelsFeed({ navigation }) {
       </View>
 
       <ImageBackground
-        source={require("./assests/bg2.jpg")}
-        // source={{
-        //   uri: "https://uptourism.gov.in/site/writereaddata/siteContent/Year_2024/202401161034006294ayodhya-banner.jpg",
-        // }}
+        // source={require("./assests/bg2.jpg")}
+        source={{
+          uri: "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/bg2.jpg",
+        }}
         style={styles.imgBack}
       >
         <Text style={styles.bgHeading}>

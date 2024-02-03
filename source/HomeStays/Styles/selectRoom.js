@@ -4,31 +4,26 @@ const winWidth = Dimensions.get("window").width;
 const selectRooms = StyleSheet.create({
   superCont: {
     borderColor: "#ddd",
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 10,
     backgroundColor: "white",
     width: 370,
-    // marginLeft: 15,
     shadowColor: "black",
     shadowOpacity: 0.2,
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 3,
     },
-    // marginBottom: 10,
-    height: 400,
-    marginRight: 10,
   },
   imgCont: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
   },
   roomsImg: {
     width: 350,
     height: 200,
     borderRadius: 10,
+    marginTop: 10,
   },
   detailsCont: {
     flex: 1,
@@ -41,7 +36,6 @@ const selectRooms = StyleSheet.create({
   },
   hrcards: {
     flexDirection: "row",
-    // marginTop: 10,
     marginBottom: 7,
   },
   hrCardtxt: {
@@ -53,7 +47,6 @@ const selectRooms = StyleSheet.create({
     borderRadius: 4,
     marginRight: 5,
     paddingHorizontal: 5,
-    // elevation: 1,
   },
   amentitiesCont: {
     flex: 1,
@@ -99,7 +92,6 @@ const selectRooms = StyleSheet.create({
     width: 35,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "red"
   },
 });
 

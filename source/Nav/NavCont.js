@@ -6,7 +6,7 @@ import HotelStack from "../HomeStays/HotelStack";
 export default function NavCont() {
   return (
     <NavigationContainer>
-      <HotelStack />
+      <StackNav />
     </NavigationContainer>
   );
 }

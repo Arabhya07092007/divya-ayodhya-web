@@ -1,57 +1,196 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
-  StyleSheet,
   Image,
-  TouchableOpacity,
-  Dimensions,
   ScrollView,
+  TouchableOpacity,
   ImageBackground,
-  StatusBar,
-  SafeAreaView,
   FlatList,
-  TextInput,
-  Animated,
+  Dimensions,
 } from "react-native";
+import { styles } from "./Styles/HotelScreen";
 import hotelsData from "./Dataset/data2";
 import NavBar from "./Components/NavBar";
-import styles from "./Styles/HotelScreen";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import Paginator from "./Components/Paginator";
-import WhChose from "./Components/whChose";
+import HotelDesc from "./HtsrCont/HotelDesc";
 import selectRooms from "./Styles/selectRoom";
-import ImageRender from "./Components/RenderImage";
 
-import RulesComp from "./Components/RulesComp";
-
-const winWidth = Dimensions.get("window").width;
-const winHeight = Dimensions.get("window").height;
+const { width, height } = Dimensions.get("window");
+const icons = (icon) => {
+  return `https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/hmStays/${icon}.png`;
+};
 
 export default function HotelScreen({ navigation, route }) {
-  const { data } = route.params;
-  const scrollX = React.useRef(new Animated.Value(0)).current;
+  const data = hotelsData[0];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [bookingDetail, setBookingDetail] = useState({
+    from: "24 Jan",
+    to: "27 Jan",
+    hotelId: "3213123123",
+    rooms: [
+      { id: "1", data: null },
+      { id: "2", data: null },
+      { id: "3", data: null },
+      { id: "4", data: null },
+      { id: "5", data: null },
+    ],
+  });
 
-  const slidesRef = React.useRef(null);
+  const [count1, setCount1] = React.useState(0);
+  const [count2, setCount2] = React.useState(0);
+  const [count3, setCount3] = React.useState(0);
+  const [count4, setCount4] = React.useState(0);
+  const [count5, setCount5] = React.useState(0);
 
-  const viewableItemsChanged = React.useRef(({ viewableItems }) => {
-    setCurrentIndex(viewableItems[0].index);
-  }).current;
+  const availableRooms = 5;
 
-  const viewConfig = React.useRef({
-    viewAreaCoveragePercentThreshold: 50,
-  }).current;
+  const handleAddRoom = (item, index) => {
+    if (index == 0) {
+      if (count1 < availableRooms) {
+        setCount1(count1 + 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count1 + 1,
+          indexOfRoom: index,
+        };
 
-  const houseRules = [
-    "Guest can check-in only with ID Proof.",
-    "Check-in: 12:00 PM - 11:00 PM",
-    "Check-out: 11:00 AM",
-    "Smoking within premises is not allowed.",
-    "Alcohol consumption is not allowed.",
-    "No loud music or noise allowed.",
-  ];
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    } else if (index == 1) {
+      if (count2 < availableRooms) {
+        setCount2(count2 + 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count2 + 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    } else if (index == 2) {
+      if (count3 < availableRooms) {
+        setCount3(count3 + 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count3 + 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    } else if (index == 3) {
+      if (count4 < availableRooms) {
+        setCount4(count4 + 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count4 + 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    } else if (index == 4) {
+      if (count5 < availableRooms) {
+        setCount5(count5 + 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count5 + 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    }
+  };
+
+  const handleRemoveRoom = (item, index) => {
+    if (index == 0) {
+      if (count1 > 0) {
+        setCount1(count1 - 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count1 - 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    } else if (index == 1) {
+      if (count2 > 0) {
+        setCount2(count2 - 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count2 - 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    } else if (index == 2) {
+      if (count3 > 0) {
+        setCount3(count3 - 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count3 - 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    } else if (index == 3) {
+      if (count4 > 0) {
+        setCount4(count4 - 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count4 - 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    } else if (index == 4) {
+      if (count5 > 0) {
+        setCount5(count5 - 1);
+        let data = {
+          name: item.name,
+          price: item.pricing,
+          count: count5 - 1,
+          indexOfRoom: index,
+        };
+
+        let newData = bookingDetail;
+        newData.rooms[index].data = data;
+        setBookingDetail(newData);
+      }
+    }
+  };
 
   const price = () => {
     let price =
@@ -78,201 +217,7 @@ export default function HotelScreen({ navigation, route }) {
     return price;
   };
 
-  const [count1, setCount1] = React.useState(0);
-  const [count2, setCount2] = React.useState(0);
-  const [count3, setCount3] = React.useState(0);
-  const [count4, setCount4] = React.useState(0);
-  const [count5, setCount5] = React.useState(0);
-
-  const availableRooms = 5;
-
-  const handleAddRoom = (item, index) => {
-    if (index == 0) {
-      if (count1 < availableRooms) {
-        setCount1(count1 + 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count1 + 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    } else if (index == 1) {
-      if (count2 < availableRooms) {
-        setCount2(count2 + 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count2 + 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    } else if (index == 2) {
-      if (count3 < availableRooms) {
-        setCount3(count3 + 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count3 + 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    } else if (index == 3) {
-      if (count4 < availableRooms) {
-        setCount4(count4 + 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count4 + 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    } else if (index == 4) {
-      if (count5 < availableRooms) {
-        setCount5(count5 + 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count5 + 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    }
-  };
-
-  const handleRemoveRoom = (item, index) => {
-    // if (count > 0) {
-    //     setCount(count - 1);
-    //     let data = {
-    //         name: item.name,
-    //         price: item.pricing,
-    //         count: count - 1,
-    //         indexOfRoom: index
-    //     }
-
-    //     let newData = bookingDetail;
-    //     newData.rooms[index].data = data;
-    //     console.log(newData)
-    //     setBookingDetail(newData);
-    // }
-
-    if (index == 0) {
-      if (count1 > 0) {
-        setCount1(count1 - 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count1 - 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    } else if (index == 1) {
-      if (count2 > 0) {
-        setCount2(count2 - 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count2 - 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    } else if (index == 2) {
-      if (count3 > 0) {
-        setCount3(count3 - 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count3 - 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    } else if (index == 3) {
-      if (count4 > 0) {
-        setCount4(count4 - 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count4 - 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    } else if (index == 4) {
-      if (count5 > 0) {
-        setCount5(count5 - 1);
-        let data = {
-          name: item.name,
-          price: item.pricing,
-          count: count5 - 1,
-          indexOfRoom: index,
-        };
-
-        let newData = bookingDetail;
-        newData.rooms[index].data = data;
-        //console.log(newData)
-        setBookingDetail(newData);
-      }
-    }
-  };
-
-  const [bookingDetail, setBookingDetail] = useState({
-    from: "24 Jan",
-    to: "27 Jan",
-    hotelId: "3213123123",
-    rooms: [
-      { id: "1", data: null },
-      { id: "2", data: null },
-      { id: "3", data: null },
-      { id: "4", data: null },
-      { id: "5", data: null },
-    ],
-  });
-
-  function Card({ item, navigation, onData, index }) {
+  function Card({ item, index }) {
     return (
       <View style={selectRooms.superCont}>
         <View style={selectRooms.imgCont}>
@@ -292,15 +237,15 @@ export default function HotelScreen({ navigation, route }) {
           <View style={selectRooms.amentitiesCont}>
             <View style={selectRooms.amenitiesIconsCont}>
               <Image
-                source={require("./assests/hi7.png")}
+                source={{ uri: icons("hi7") }}
                 style={selectRooms.amenitiesIcon}
               />
               <Image
-                source={require("./assests/hi2.png")}
+                source={{ uri: icons("hi2") }}
                 style={selectRooms.amenitiesIcon}
               />
               <Image
-                source={require("./assests/hi5.png")}
+                source={{ uri: icons("hi5") }}
                 style={selectRooms.amenitiesIcon}
               />
 
@@ -317,9 +262,6 @@ export default function HotelScreen({ navigation, route }) {
                 Per room for one night
               </Text>
             </View>
-            {/* <TouchableOpacity style={selectRooms.bottomBtn}>
-            <Text style={selectRooms.btnTxt}>Add</Text>
-          </TouchableOpacity> */}
             <View style={{ flexDirection: "row" }}>
               <TouchableOpacity
                 style={selectRooms.roomsBtn}
@@ -327,7 +269,12 @@ export default function HotelScreen({ navigation, route }) {
                   handleAddRoom(item, index);
                 }}
               >
-                <Ionicons name="add-outline" size={32} color="black" />
+                <Image
+                  source={{
+                    uri: "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/plus.png",
+                  }}
+                  style={{ width: 27, height: 27 }}
+                />
               </TouchableOpacity>
 
               <View
@@ -342,7 +289,6 @@ export default function HotelScreen({ navigation, route }) {
                   style={{
                     color: "black",
                     fontSize: 20,
-                    fontWeight: "600",
                   }}
                 >
                   {index == 0
@@ -365,7 +311,12 @@ export default function HotelScreen({ navigation, route }) {
                   handleRemoveRoom(item, index);
                 }}
               >
-                <Ionicons name="remove-outline" size={32} color="black" />
+                <Image
+                  source={{
+                    uri: "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/minus.png",
+                  }}
+                  style={{ width: 27, height: 27 }}
+                />
               </TouchableOpacity>
             </View>
           </View>
@@ -376,184 +327,53 @@ export default function HotelScreen({ navigation, route }) {
 
   return (
     <View style={styles.cont}>
-      <NavBar />
+      <NavBar navigation={navigation} />
+      <View style={styles.flexCont}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{ width: "70%", flex: 1, height: height - 80 }}
+        >
+          <HotelDesc data={data} />
 
-      <ScrollView showsVerticalScrollIndicator={false} style={styles.SvCont}>
-        <FlatList
-          data={data.rooms[0].roomImages}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={ImageRender}
-          horizontal={true}
-          pagingEnabled={true}
-          showsHorizontalScrollIndicator={false}
-          bounces={false}
-          scrollEventThrottle={32}
-          onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-            { useNativeDriver: false }
-          )}
-          onViewableItemsChanged={viewableItemsChanged}
-          viewabilityConfig={viewConfig}
-          ref={slidesRef}
-          style={{}}
-        />
+          <View style={{ marginHorizontal: 30, marginTop: 20 }}>
+            <Text style={{ fontSize: 22, fontWeight: "bold" }}>
+              Featured Rooms
+            </Text>
 
-        <Paginator data={data.rooms[0].roomImages} scrollX={scrollX} />
-
-        <View style={{ paddingHorizontal: 50 }}>
-          <View style={{ flexDirection: "row" }}>
-            <View style={{ flex: 1 }}>
-              <Text style={styles.heading}>{data.hotelName}</Text>
-              <View style={{ flexDirection: "row" }}>
-                <Image
-                  source={require("./assests/stars.png")}
-                  style={styles.ratingImg}
-                />
-                <Image
-                  source={require("./assests/stars.png")}
-                  style={styles.ratingImg}
-                />
-                <Image
-                  source={require("./assests/stars.png")}
-                  style={styles.ratingImg}
-                />
-                <Image
-                  source={require("./assests/stars.png")}
-                  style={styles.ratingImg}
-                />
-                <Image
-                  source={require("./assests/stars.png")}
-                  style={styles.ratingImg}
-                />
-                <Text style={{ fontSize: 16, marginTop: 4 }}> 5.0 (89)</Text>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <Image
-                  source={{
-                    uri: "https://raw.githubusercontent.com/Arabhya07092007/HolyAyodhya-assets/main/locationIcon.png",
-                  }}
-                  style={styles.locationIcon}
-                />
-                <Text style={styles.desc}>{data.address}</Text>
-              </View>
-            </View>
-
-            <View>
-              <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
-                <Text style={styles.price}>{data.rooms[0].pricing}</Text>
-                <Text style={{ fontSize: 16, top: -9, marginLeft: 2 }}>
-                  /night
-                </Text>
-              </View>
-
-              <View style={{ flexDirection: "row" }}>
-                <View style={styles.icontCont}>
-                  <Ionicons name="heart-outline" size={26} color="#black" />
-                </View>
-                <View style={[styles.icontCont, { marginLeft: 10 }]}>
-                  <Ionicons
-                    name="share-social-outline"
-                    size={26}
-                    color="#black"
-                  />
-                </View>
-              </View>
+            <View style={{ marginLeft: 15, marginTop: 20 }}>
+              <FlatList
+                horizontal
+                data={data.rooms}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item, index }) => (
+                  <Card item={item} index={index} navigation={navigation} />
+                )}
+                style={{ backgroundColor: "#FDFAE7", marginHorizontal: -15 }}
+              />
             </View>
           </View>
+        </ScrollView>
 
-          <View>
-            <Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 20 }}>
-              About this place
-            </Text>
-            <Text style={{ fontSize: 16, marginTop: 10 }}>{data.about}</Text>
-          </View>
-
-          <View style={{ height: 1, backgroundColor: "grey", marginTop: 20 }} />
-
-          <View>
-            <Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 20 }}>
-              Why chose us ?
-            </Text>
-
-            <WhChose
-              uri={require("./assests/hi1.png")}
-              text={"Clean, fresh vibe"}
-            />
-            <WhChose
-              uri={require("./assests/hi2.png")}
-              text={"Guest friendly."}
-            />
-            <WhChose
-              uri={require("./assests/hi3.png")}
-              text={"Rated for high service and staff"}
-            />
-
-            <View
-              style={{
-                height: 1,
-                backgroundColor: "grey",
-                marginTop: 20,
-                marginBottom: 20,
-              }}
-            />
-
-            <Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 20 }}>
-              Why chose us ?
-            </Text>
-
-            <WhChose uri={require("./assests/hi4.png")} text={"Free Wifi"} />
-            <WhChose uri={require("./assests/hi5.png")} text={"Free Parking"} />
-            <WhChose uri={require("./assests/hi6.png")} text={"CCTV"} />
-            <WhChose
-              uri={require("./assests/hi7.png")}
-              text={"24*7 check-in"}
-            />
-            <WhChose uri={require("./assests/hi8.png")} text={"Laundry"} />
-
-            <Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 20 }}>
-              Cancellation Policies
-            </Text>
-
-            <WhChose
-              moreStyles={{ marginRight: 15 }}
-              uri={require("./assests/hi9.png")}
-              text={"Free cancellation till 24 hours before check-in"}
-            />
-            <WhChose
-              moreStyles={{ marginRight: 15 }}
-              uri={require("./assests/hi10.png")}
-              text={
-                "No refund if booking is cancelled within 24 hours of check-in"
-              }
-            />
-
-            <RulesComp houseRules={houseRules} />
-          </View>
-        </View>
-
-        <Text
+        <View
           style={{
-            fontSize: 20,
-            fontWeight: "bold",
-            marginTop: 20,
-            marginLeft: 50,
-            marginBottom: 20,
-            marginTop: -40,
+            width: "30%",
+            backgroundColor: "#e9f5e3",
           }}
         >
-          Select Rooms
-        </Text>
-
-        <FlatList
-          horizontal
-          data={data.rooms}
-          style={{ marginLeft: 50 }}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item, index }) => (
-            <Card item={item} index={index} navigation={navigation} />
-          )}
-        />
-      </ScrollView>
+          <View
+            style={{
+              width: "100%",
+              height: 50,
+              backgroundColor: "red",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingHorizontal: 20,
+              position: "absolute",
+            }}
+          />
+        </View>
+      </View>
     </View>
   );
 }

@@ -18,9 +18,17 @@ function HotelStack() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="HotelsFeed" component={HotelsFeed} />
-      <Stack.Screen name="HotelScreen" component={HotelScreen} />
-      <Stack.Screen name="Home" component={Home} />
+      {/* <Stack.Screen name="HotelsFeed" component={HotelsFeed} /> */}
+      <Stack.Screen
+        name="HotelScreen"
+        component={HotelScreen}
+        options={{ title: "Divya Ayodhya" }}
+      />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ title: "Divya Ayodhya" }}
+      />
     </Stack.Navigator>
   );
 }

@@ -11,8 +11,7 @@ import ParkingComplex from "../Parking/ParkingComplex";
 import BookingEntry from "../Parking/BookingEntry";
 import ReviewSum from "../Parking/ReviewSum";
 import Tickets from "../Parking/Tickets";
-import ComingSoon from "../Parking/ComingSoon";
-
+// import ComingSoon from "../Parking/ComingSoon";
 import Utilities from "../Utilities/Utilities";
 import ToiletFeed from "../Utilities/ToiletFeed";
 import ToiletScreen from "../Utilities/ToiletScreen";
@@ -35,6 +34,7 @@ function StackNav() {
         headerTitleAlign: "center",
         headerTitleStyle: { fontSize: 20 },
       }}
+      initialRouteName="ParkingFeed"
     >
       <Stack.Screen
         name="Ebus"
@@ -114,7 +114,7 @@ function StackNav() {
           title: "Tickets",
         }}
       />
-      <Stack.Screen name="ComingSoon" component={ComingSoon} />
+      {/* <Stack.Screen name="ComingSoon" component={ComingSoon} /> */}
       <Stack.Screen name="BottomTabNav" component={BottomTabNav} />
       <Stack.Screen name="TouristPlace" component={TouristPlace} />
     </Stack.Navigator>
