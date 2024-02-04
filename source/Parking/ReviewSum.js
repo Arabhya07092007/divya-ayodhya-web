@@ -23,7 +23,19 @@ const timestamp = date.toString();
 export default function ReviewSum({ navigation, route }) {
   const { paymentData } = route.params;
 
-  const newPostKey = push(child(ref(database), "/Parking/bookingsPanel")).key;
+  const newPostKey = push(
+    child(
+      ref(database),
+      `/Parking/parkingEntity/${paymentData.parkingId}/bokings`
+    )
+  ).key;
+
+  function writeRef(parkingRef) {
+    const newRefKey = push(child(ref(database), `/Parking/bookingsPanel`)).key;
+    const updates = {};
+    updates[`Parking/bookingsPanel/${newRefKey}`] = parkingRef;
+    return update(ref(database), updates);
+  }
 
   function writeData() {
     const data = {
@@ -40,9 +52,11 @@ export default function ReviewSum({ navigation, route }) {
       exitTime: "",
     };
 
-    // set(ref(database, "/Parking/bookingsPanel/" + date.toString()), data);
     const updates = {};
-    updates["/Parking/bookingsPanel/" + newPostKey] = data;
+    updates[
+      `/Parking/parkingEntity/${paymentData.parkingId}/bookings/` + newPostKey
+    ] = data;
+    writeRef(newPostKey);
     return update(ref(database), updates);
   }
 
@@ -140,6 +154,7 @@ export default function ReviewSum({ navigation, route }) {
             amount: paymentData.amount,
             verfied: false,
             timestamp: timestamp,
+            parkingId: paymentData.parkingId,
           };
 
           navigation.navigate("Tickets", { ticketData: ticketData });
@@ -179,7 +194,6 @@ const styles = StyleSheet.create({
     color: "#616161",
     fontWeight: "600",
     width: "50%",
-    // backgroundColor: '#FDFAE7',
   },
   rht: {
     justifyContent: "flex-end",

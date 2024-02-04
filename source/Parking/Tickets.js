@@ -14,6 +14,8 @@ import { Dimensions } from "react-native";
 import QRCode from "react-native-qrcode-svg";
 
 export default function Tickets({ navigation, route }) {
+  const parkEnt = "ticketidparkingEntity";
+
   const gettingDate = () => {
     var date = new Date().getDate();
 
@@ -33,6 +35,7 @@ export default function Tickets({ navigation, route }) {
   };
 
   const { ticketData } = route.params;
+
   return (
     <SafeAreaView style={styles.cont}>
       <StatusBar barStyle={"dark-content"} backgroundColor={"#FDFAE7"} />
@@ -65,7 +68,10 @@ export default function Tickets({ navigation, route }) {
               alignItems: "center",
             }}
           >
-            <QRCode value={`TicketId${ticketData.qrID}`} size={220} />
+            <QRCode
+              value={`ticketid${ticketData.parkingId}-${ticketData.qrID}`}
+              size={220}
+            />
             <Text
               style={{
                 color: "black",

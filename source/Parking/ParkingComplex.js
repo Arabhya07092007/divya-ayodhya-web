@@ -23,9 +23,6 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import call from "react-native-phone-call";
 
 function renderItem({ item }) {
-  console.clear();
-  console.log("cleared the data");
-  console.log(item);
   return (
     <View style={{ width: winWidth, height: 230 }}>
       <Image
@@ -75,8 +72,6 @@ export default function ParkingComplex({ navigation, route }) {
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-  console.log("fetching parking details");
-  console.log(parkingComplex.images);
 
   const makeCall = () => {
     const args = {
@@ -102,7 +97,6 @@ export default function ParkingComplex({ navigation, route }) {
           style={{ width: 27, height: 27 }}
         />
       </TouchableOpacity>
-      {/* <PrkDCont onPress={toggleModal} data={parkingComplex} /> */}
 
       <View style={Styles.cont}>
         <FlatList
@@ -114,12 +108,12 @@ export default function ParkingComplex({ navigation, route }) {
         />
 
         <ScrollView>
-          <View style={Styles.indicators}>
+          {/* <View style={Styles.indicators}>
             <View style={Styles.circles} />
             <View style={Styles.circles} />
             <View style={Styles.circles} />
             <View style={Styles.circles} />
-          </View>
+          </View> */}
 
           <View style={{ marginHorizontal: 15 }}>
             <View
@@ -184,7 +178,7 @@ export default function ParkingComplex({ navigation, route }) {
                       paddingHorizontal: 5,
                     }}
                   >
-                    {data.availableSlots}
+                    {data.totalSlots}
                   </Text>
                 </View>
                 <View style={{ justifyContent: "center" }}>
@@ -197,7 +191,7 @@ export default function ParkingComplex({ navigation, route }) {
                 </View>
               </View>
 
-              <View style={{ flexDirection: "row" }}>
+              {/* <View style={{ flexDirection: "row" }}>
                 <View
                   style={{
                     backgroundColor: "#f1781e",
@@ -219,7 +213,7 @@ export default function ParkingComplex({ navigation, route }) {
                 <View style={{ justifyContent: "center" }}>
                   <Text style={Styles.txt1}>4.2 km away</Text>
                 </View>
-              </View>
+              </View> */}
             </View>
           </View>
 
@@ -441,6 +435,8 @@ export default function ParkingComplex({ navigation, route }) {
             elevation: 1,
             marginBottom: 10,
             marginTop: 10,
+            paddingVertical: 12,
+            marginTop: 10,
           }}
         >
           <Text
@@ -452,7 +448,7 @@ export default function ParkingComplex({ navigation, route }) {
               textAlign: "center",
             }}
           >
-            Book
+            Book Parking
           </Text>
         </TouchableOpacity>
       </View>
