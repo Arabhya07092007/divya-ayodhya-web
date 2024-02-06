@@ -191,7 +191,7 @@ export default function ParkingComplex({ navigation, route }) {
                 </View>
               </View>
 
-              {/* <View style={{ flexDirection: "row" }}>
+              <View style={{ flexDirection: "row" }}>
                 <View
                   style={{
                     backgroundColor: "#f1781e",
@@ -213,7 +213,7 @@ export default function ParkingComplex({ navigation, route }) {
                 <View style={{ justifyContent: "center" }}>
                   <Text style={Styles.txt1}>4.2 km away</Text>
                 </View>
-              </View> */}
+              </View>
             </View>
           </View>
 
@@ -347,7 +347,7 @@ export default function ParkingComplex({ navigation, route }) {
             </Text>
           </View>
 
-          <View style={{ marginHorizontal: 15, marginTop: 10 }}>
+          {/* <View style={{ marginHorizontal: 15, marginTop: 10 }}>
             <Text style={[Styles.txt1, { fontWeight: "600", fontSize: 18 }]}>
               Price
             </Text>
@@ -364,9 +364,9 @@ export default function ParkingComplex({ navigation, route }) {
             <Text style={[Styles.txt1, { fontWeight: "400", color: "black" }]}>
               {`Charges for four wheeler parking:\n\nParking fees up to 4 hrs – INR 50/-\n\nParking fees from 4 – 8 hrs – INR 70/-\n\nParking fees for more than (8 Hours) INR 110/-\n\nParking monthly pass - INR 2000/-`}
             </Text>
-          </View>
+          </View> */}
 
-          <View style={{ marginHorizontal: 15, marginTop: 10 }}>
+          {/* <View style={{ marginHorizontal: 15, marginTop: 10 }}>
             <Text style={[Styles.txt1, { fontWeight: "600", fontSize: 18 }]}>
               About
             </Text>
@@ -383,9 +383,9 @@ export default function ParkingComplex({ navigation, route }) {
             <Text style={[Styles.txt1, { fontWeight: "400", color: "black" }]}>
               {`To provide better commute facilities to devotees, various routes connecting Ayodhya with other districts and roads to Shri Ram Janmabhoomi Temple are being widened and strengthened.\n\nAs the much-awaited Pran Pratishtha ceremony of Ram Mandir, scheduled to be held on December 22, is around the corner, Ayodhya is gearing up to welcome a humongous crowd of devotees. To provide parking facilities to the visitors, the city administration has undertaken several projects, including building five multi-storey parking.\n\nOf the five multi-storey parking being built, the construction works of Tedhibazar East, Tedhibazar West, Kaushalaj Kunj and Amaniganj are complete. The construction of smart vehicle parking near the Collectorate are completed. All these parking lots will accommodate around 600 vehicles.`}
             </Text>
-          </View>
+          </View> */}
 
-          <View style={{ marginHorizontal: 15, marginTop: 10 }}>
+          {/* <View style={{ marginHorizontal: 15, marginTop: 10 }}>
             <Text style={[Styles.txt1, { fontWeight: "600", fontSize: 18 }]}>
               Terms & Conditions
             </Text>
@@ -403,7 +403,7 @@ export default function ParkingComplex({ navigation, route }) {
               {`Service is not free of charge. There may be fees applied when you avail of the services.\n\n • The vehicle should be locked properly and with all technical facilities.\n\n • Properly locked and parked inside the parking lots.\n\n • Cancellation is not allowed for this service
 `}
             </Text>
-          </View>
+          </View> */}
 
           <View style={{ marginHorizontal: 15, marginTop: 10 }}>
             <Text style={[Styles.txt1, { fontWeight: "600", fontSize: 18 }]}>
@@ -418,9 +418,8 @@ export default function ParkingComplex({ navigation, route }) {
                 marginBottom: 5,
               }}
             />
-
             <Text style={[Styles.txt1, { fontWeight: "400", color: "black" }]}>
-              {`We make no claim as to the accuracy or timeliness of the information provided here. The data displayed may be subject to change and may not always be up to date. We recommend that you verify any information obtained from here with the original source before relying on it. By using this, you acknowledge that you are solely responsible for any decisions or actions you take based on the information provided. This is provided for informational purposes only and is not intended to substitute for professional advice. We will not be liable for any errors or omissions in the information provided or for any actions taken in reliance on the information.`}
+              {`Info may not be accurate or current. Verify with the original source before use. You're responsible for decisions based on this info. It's for informational purposes only, not professional advice. We're not liable for any errors, omissions, or actions taken based on this info.`}
             </Text>
           </View>
         </ScrollView>

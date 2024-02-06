@@ -92,7 +92,11 @@ function StackNav() {
           title: "Parkings in Ayodhya",
         }}
       />
-      <Stack.Screen name="ParkingComplex" component={ParkingComplex} />
+      <Stack.Screen
+        name="ParkingComplex"
+        component={ParkingComplex}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="BookingEntry"
         component={BookingEntry}

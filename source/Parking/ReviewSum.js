@@ -60,6 +60,17 @@ export default function ReviewSum({ navigation, route }) {
     return update(ref(database), updates);
   }
 
+  const storeData = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem("tickets", jsonValue);
+      console.log("Data saved");
+      // alert("Data saved");
+    } catch (e) {
+      // saving error
+    }
+  };
+
   return (
     <SafeAreaView style={styles.cont}>
       <StatusBar barStyle={"dark-content"} backgroundColor={"#FDFAE7"} />
@@ -156,6 +167,8 @@ export default function ReviewSum({ navigation, route }) {
             timestamp: timestamp,
             parkingId: paymentData.parkingId,
           };
+
+          storeData(ticketData);
 
           navigation.navigate("Tickets", { ticketData: ticketData });
         }}
