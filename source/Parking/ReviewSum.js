@@ -71,6 +71,38 @@ export default function ReviewSum({ navigation, route }) {
     }
   };
 
+  const postPaymentData = async (ticketData) => {
+    const url = "https://divyayodhya.com/newdivya/frontend/home/testpayment";
+    const data = {
+      // order_id: ticketData.qrID,
+      // visitor_name: ticketData.name,
+      // visitor_phone: ticketData.phoneNo,
+      // total_payable_amount: ticketData.amount,
+      // visitor_address: "mahmoorganj",
+      order_id: "ticketData.qrID",
+      visitor_name: "ticketData.name",
+      visitor_phone: "ticketData.phoneNo",
+      total_payable_amount: 130,
+      visitor_address: "mahmoorganj",
+    };
+
+    fetch(url, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log("Success:");
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <SafeAreaView style={styles.cont}>
       <StatusBar barStyle={"dark-content"} backgroundColor={"#FDFAE7"} />
@@ -152,7 +184,7 @@ export default function ReviewSum({ navigation, route }) {
 
       <TouchableOpacity
         onPress={() => {
-          writeData();
+          // writeData();
           // storeData();
           const ticketData = {
             qrID: newPostKey,
@@ -168,9 +200,10 @@ export default function ReviewSum({ navigation, route }) {
             parkingId: paymentData.parkingId,
           };
 
-          storeData(ticketData);
+          // storeData(ticketData);
+          postPaymentData(ticketData);
 
-          navigation.navigate("Tickets", { ticketData: ticketData });
+          // navigation.navigate("Tickets", { ticketData: ticketData });
         }}
         style={{
           backgroundColor: "#F0A936",

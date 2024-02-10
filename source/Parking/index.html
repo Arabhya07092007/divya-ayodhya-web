@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Form</title>
+  </head>
+  <body>
+    <h1>Order Form</h1>
+    <form
+      method="post"
+      action="https://divyayodhya.com/newdivya/frontend/home/testpayment"
+    >
+      <label for="order_id">Order ID:</label><br />
+      <input type="text" id="order_id" name="order_id" /><br />
+      <label for="total_payable_amount">Total Payable Amount:</label><br />
+      <input
+        type="number"
+        id="total_payable_amount"
+        name="total_payable_amount"
+      /><br />
+      <label for="visitor_name">Visitor Name:</label><br />
+      <input type="text" id="visitor_name" name="visitor_name" /><br />
+      <label for="visitor_phone">Visitor Phone:</label><br />
+      <input type="tel" id="visitor_phone" name="visitor_phone" /><br />
+      <label for="visitor_address">Visitor Address:</label><br />
+      <input type="text" id="visitor_address" name="visitor_address" /><br />
+      <label for="visitor_email">Visitor Email:</label><br />
+      <input type="email" id="visitor_email" name="visitor_email" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
