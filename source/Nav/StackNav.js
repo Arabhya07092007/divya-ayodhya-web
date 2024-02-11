@@ -34,7 +34,7 @@ function StackNav() {
         headerTitleAlign: "center",
         headerTitleStyle: { fontSize: 20 },
       }}
-      initialRouteName="ParkingFeed"
+      initialRouteName="BottomTabNav"
     >
       <Stack.Screen
         name="Ebus"

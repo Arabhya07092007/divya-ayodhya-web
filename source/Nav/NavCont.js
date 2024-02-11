@@ -8,7 +8,7 @@ import ParkStack from "../Payments/paymentStack";
 export default function NavCont() {
   return (
     <NavigationContainer>
-      <ParkStack />
+      <StackNav />
     </NavigationContainer>
   );
 }

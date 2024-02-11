@@ -5,9 +5,9 @@ import { useWindowDimensions, StyleSheet } from "react-native";
 const Response = ({ route }) => {
   const { width } = useWindowDimensions();
   const ticketData = {
-    qrID: "ticketData.qrID",
-    name: "ticketData.name",
-    phoneNo: "ticketData.phoneNo",
+    qrID: "thisISqrID",
+    name: "Arpit",
+    phoneNo: "1234567890",
   };
 
   const body = `order_id=${ticketData.qrID}&visitor_name=${ticketData.name}&visitor_phone=${ticketData.phoneNo}&total_payable_amount=130&visitor_address=mahmoorganj`;

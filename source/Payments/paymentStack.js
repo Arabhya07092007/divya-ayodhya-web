@@ -11,13 +11,13 @@ const Stack = createStackNavigator();
 function ParkStack() {
   return (
     <Stack.Navigator>
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Home"
         component={Home}
         options={{
           title: "Home",
         }}
-      /> */}
+      />
       <Stack.Screen
         name="Response"
         component={Response}
